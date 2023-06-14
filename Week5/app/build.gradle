@@ -1,0 +1,58 @@
+plugins {
+    alias(libs.plugins.androidApplication)
+}
+
+android {
+    namespace 'com.example.exercise_week5'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.exercise_week5"
+        minSdk 30
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.test.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    def leanback_version = "1.2.0-alpha02"
+
+    implementation libs.androidx.leanback
+
+    // leanback-preference is an add-on that provides a settings UI for TV apps.
+    implementation libs.androidx.leanback.preference
+
+    // leanback-paging is an add-on that simplifies adding paging support to a RecyclerView Adapter.
+    implementation libs.androidx.leanback.paging
+
+    // leanback-tab is an add-on that provides customized TabLayout to be used as the top navigation bar.
+    implementation libs.androidx.leanback.tab
+
+    implementation 'com.squareup.picasso:picasso:1.1.1'
+
+    def lifecycle_version = "2.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+}
